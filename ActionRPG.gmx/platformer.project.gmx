@@ -6,15 +6,21 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
-    <sprite>sprites\ply_collider</sprite>
     <sprite>sprites\spr_collider</sprite>
-    <sprite>sprites\ply_run</sprite>
-    <sprite>sprites\ply_idle</sprite>
-    <sprite>sprites\ply_attack</sprite>
-    <sprite>sprites\ply_jump</sprite>
-    <sprite>sprites\ply_fall</sprite>
-    <sprite>sprites\ogre</sprite>
-    <sprite>sprites\enemy_collider</sprite>
+    <sprites name="Enemy">
+      <sprite>sprites\troll</sprite>
+      <sprite>sprites\troll_collider</sprite>
+      <sprite>sprites\troll_attack</sprite>
+      <sprite>sprites\troll_death</sprite>
+    </sprites>
+    <sprites name="Player">
+      <sprite>sprites\ply_attack</sprite>
+      <sprite>sprites\ply_idle</sprite>
+      <sprite>sprites\ply_run</sprite>
+      <sprite>sprites\ply_fall</sprite>
+      <sprite>sprites\ply_jump</sprite>
+      <sprite>sprites\ply_collider</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\ts_1</background>
@@ -26,14 +32,18 @@
       <script>scripts\player_init.gml</script>
     </scripts>
     <scripts name="Enemies">
-      <script>scripts\ogre_step.gml</script>
-      <script>scripts\ogre_init.gml</script>
+      <script>scripts\troll_step.gml</script>
+      <script>scripts\troll_init.gml</script>
     </scripts>
   </scripts>
   <objects name="objects">
-    <object>objects\obj_ply</object>
     <object>objects\obj_collider</object>
-    <object>objects\obj_ogre</object>
+    <objects name="Player">
+      <object>objects\obj_ply</object>
+    </objects>
+    <objects name="Enemy">
+      <object>objects\obj_troll</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>
