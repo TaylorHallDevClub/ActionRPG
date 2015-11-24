@@ -12,7 +12,7 @@ if(place_meeting(x, y + 1, obj_collider)) // check if enemy is grounded
         sprite_index = troll_attack; 
         image_speed = 0.3; hsp = 0;
         if(obj_ply.x < obj_troll.x) obj_ply.x -= 1; // if player on the left, push him left
-        else obj_ply.x += 1; // otherwise push the player right
+        else obj_ply.x += 5; // otherwise push the player right
     }
     else if(isDead){sprite_index = troll_death; image_speed = 0.3; hsp = 0;}                                      
 }
@@ -46,19 +46,24 @@ if(place_meeting(x + hsp, y, obj_ply)) // if touching player
         x += sign(hsp); // move until collider is 1 pixel to L or R 
     }
     hsp = 0; // after collision, jump out of while loop and move no further, hsp = 0  
+    
     if(obj_ply.y < y + 16) // if player touching top of enemy <------------------------------------------------------------------------------TODO: y - 16 needs to change 11.22.2015
     {
         plyOn = true;
         with(obj_ply) vsp = -jumpSpeed; // player will bounce. 'jumpSpeed' is a player VAR
     }
-    else if(obj_ply.isAttacking == true && !isDead){health -= 20;} //<----------------------------------------------------------------------FIX: taking 20 every step. Should take 4 hits instead of 1
-    else
+    else if(obj_ply.isAttacking == true && !isDead && !beingHit) // player attacking
     {
-        if(place_meeting(x + 50, y, obj_ply) || place_meeting(x - 50, y, obj_ply) && !isDead)
-        {
-            isAttacking = true;
-        }
+        health -= 20; 
+        beingHit = true;
+    } 
+    
+    if(place_meeting(x + 50, y, obj_ply) || place_meeting(x - 50, y, obj_ply) && !isDead)
+    {
+        isAttacking = true;
+        beingHit    = false; // resesting the beingHit bool so that obj_troll can take another hit. 
     }
+    
 }
 
 //Death State
