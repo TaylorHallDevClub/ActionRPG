@@ -6,12 +6,16 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
-    <sprite>sprites\spr_collider</sprite>
+    <sprite>sprites\solid_collider</sprite>
     <sprites name="Enemy">
       <sprite>sprites\troll</sprite>
       <sprite>sprites\troll_collider</sprite>
       <sprite>sprites\troll_attack</sprite>
       <sprite>sprites\troll_death</sprite>
+      <sprite>sprites\owl_collider</sprite>
+      <sprite>sprites\owl</sprite>
+      <sprite>sprites\owl_attack_swoop</sprite>
+      <sprite>sprites\owl_attack_hit</sprite>
     </sprites>
     <sprites name="Player">
       <sprite>sprites\ply_attack</sprite>
@@ -33,7 +37,9 @@
     </scripts>
     <scripts name="Enemies">
       <script>scripts\troll_step.gml</script>
+      <script>scripts\owl_step.gml</script>
       <script>scripts\troll_init.gml</script>
+      <script>scripts\owl_init.gml</script>
     </scripts>
   </scripts>
   <objects name="objects">
@@ -43,6 +49,7 @@
     </objects>
     <objects name="Enemy">
       <object>objects\obj_troll</object>
+      <object>objects\obj_owl</object>
     </objects>
   </objects>
   <rooms name="rooms">

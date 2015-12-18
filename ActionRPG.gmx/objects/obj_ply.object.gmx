@@ -75,9 +75,9 @@ player_step();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(isAttacking)
+            <string>if(isPlyAttacking)
 {
- isAttacking = false;
+ isPlyAttacking = false;
 }
 </string>
           </argument>
